@@ -4,191 +4,157 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BHUMIJA EMPIRE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+   <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+            --bg-dark: #ecf0f1;
+            --hover-color: #1abc9c;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fefefe;
-      color: #222;
-      scroll-behavior: smooth;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    header {
-      background: linear-gradient(135deg, #004d40, #26a69a);
-      color: white;
-      padding: 40px 15px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: #333;
+            line-height: 1.6;
+        }
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-light);
+            padding: 30px 10%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    header h2 {
-      font-size: 16px;
-      font-weight: 400;
-      opacity: 0.95;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-    .slideshow-container {
-      position: relative;
-      max-width: 92%;
-      margin: 40px auto 20px;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+        header p {
+            font-size: 1.1rem;
+        }
 
-    .slide {
-      display: none;
-      animation: fade 1s ease-in-out;
-    }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
 
-    .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 20px;
-    }
+        a:hover {
+            color: var(--hover-color);
+        }
 
-    @keyframes fade {
-      from { opacity: 0.3; }
-      to { opacity: 1; }
-    }
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: 48px;
-      height: 48px;
-      margin-top: -24px;
-      color: #fff;
-      font-size: 26px;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-      line-height: 48px;
-      text-align: center;
-      user-select: none;
-      z-index: 10;
-      transition: background 0.3s, transform 0.3s;
-    }
+        .slide {
+            display: none;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
 
-    .prev:hover, .next:hover {
-      background-color: #000;
-      transform: scale(1.08);
-    }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
 
-    .prev { left: 16px; }
-    .next { right: 16px; }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
 
-    .info-section {
-      background: white;
-      margin: 40px auto;
-      padding: 40px 30px;
-      border-radius: 18px;
-      max-width: 1000px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+        .prev { left: 20px; }
+        .next { right: 20px; }
 
-    .info-section h3,
-    .info-section h4,
-    .info-section h5 {
-      margin: 14px 0;
-      font-weight: 500;
-      font-size: 20px;
-    }
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-    .facilities {
-      padding: 40px;
-      background-color: #e8f5e9;
-      margin: 0 auto 60px auto;
-      max-width: 1000px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
+        section.details {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-    .facilities h5 {
-      margin-bottom: 24px;
-      font-size: 26px;
-      color: #004d40;
-      font-weight: 600;
-      text-align: center;
-    }
+        section.details h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
 
-    .facilities ul {
-      list-style: none;
-      padding-left: 0;
-      text-align: left;
-      columns: 2;
-      column-gap: 40px;
-      font-size: 18px;
-    }
+        section.details ul {
+            margin-left: 20px;
+            list-style-type: square;
+            color: #555;
+        }
 
-    .facilities ul li {
-      margin-bottom: 16px;
-      padding-left: 30px;
-      position: relative;
-    }
+        section.details li {
+            padding: 5px 0;
+        }
 
-    .facilities ul li::before {
-      content: "\2714\FE0F";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #00796b;
-    }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
 
-    footer {
-      background: #004d40;
-      color: #fff;
-      padding: 20px 10px;
-      text-align: center;
-      font-size: 15px;
-    }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-    a.whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 100;
-      text-decoration: none;
-    }
+            header p {
+                font-size: 0.95rem;
+            }
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 26px; }
-      header h2 { font-size: 14px; }
-      .facilities ul { columns: 1; }
-    }
-  </style>
+            .nav-button {
+                font-size: 18px;
+                padding: 8px;
+            }
+
+            section.details {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>BHUMIJA EMPIRE</h1>
-    <h2>📞 7767933864 | ✉️ lokeshyadav05299@gmail.com</h2>
-  </header>
+    <header>
+        <h1>Bhumija Empire - JDA Township</h1>
+        <p>Contact: <a href="tel:9468887005">9468887005</a> | Email: <a href="mailto:tatlasr@gmail.com">tatlasr@gmail.com</a></p>
+    </header>
+
 
   <div class="slideshow-container">
     <div class="slide"><a href="#"><img src="55.jpg" alt="Slide 1"></a></div>
@@ -270,3 +236,4 @@
   </script>
 </body>
 </html>
+
