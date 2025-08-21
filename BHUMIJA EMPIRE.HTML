@@ -199,37 +199,42 @@
     </footer>
  
 
-  <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    let slideTimer;
+   <script>
+        let slideIndex = 1;
+        let timer;
 
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex - 1].style.display = "block";
-      slideTimer = setTimeout(showSlides, 3000);
-    }
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
 
-    function moveSlide(n) {
-      clearTimeout(slideTimer);
-      slideIndex += n;
-      if (slideIndex > slides.length) slideIndex = 1;
-      if (slideIndex < 1) slideIndex = slides.length;
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-      slideTimer = setTimeout(showSlides, 3000);
-    }
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
 
-    showSlides();
-  </script>
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function moveSlide(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex += n);
+            autoSlide();
+        }
+
+        function autoSlide() {
+            timer = setTimeout(() => {
+                slideIndex++;
+                showSlides(slideIndex);
+                autoSlide();
+            }, 3000);
+        }
+
+        showSlides(slideIndex);
+        autoSlide();
+    </script>
 </body>
 </html>
+
 
 
 
