@@ -4,171 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DELIGHT PARK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+            --bg-dark: #ecf0f1;
+            --hover-color: #1abc9c;
+        }
 
-    body {
-      background-color: #f4faff;
-      color: #212121;
-      scroll-behavior: smooth;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    header {
-      background: linear-gradient(to right, #00897b, #004d40);
-      color: #fff;
-      padding: 25px 15px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: #333;
+            line-height: 1.6;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-light);
+            padding: 30px 10%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    header p {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
+        header p {
+            font-size: 1.1rem;
+        }
 
-    .slide {
-      display: none;
-      text-align: center;
-    }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
 
-    .slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-    }
+        a:hover {
+            color: var(--hover-color);
+        }
 
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.6);
-      color: white;
-      font-size: 26px;
-      padding: 12px 16px;
-      border-radius: 50%;
-      user-select: none;
-      transition: 0.3s ease;
-    }
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .prev:hover, .next:hover {
-      background-color: #222;
-    }
+        .slide {
+            display: none;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
 
-    .prev { left: 20px; }
-    .next { right: 20px; }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
 
-    .details {
-      padding: 40px 25px;
-      text-align: center;
-      background-color: #ffffff;
-    }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
 
-    .details h2 {
-      font-size: 1.8rem;
-      color: #00796b;
-      margin-bottom: 20px;
-      text-transform: capitalize;
-    }
+        .prev { left: 20px; }
+        .next { right: 20px; }
 
-    .details h3, .details h4, .details h5 {
-      margin-bottom: 10px;
-      color: #424242;
-    }
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-    .facilities {
-      background: #ffffff;
-      margin: 30px auto;
-      padding: 25px;
-      border-radius: 14px;
-      max-width: 1000px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-    }
+        section.details {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-    .facilities h6 {
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-      color: #00695c;
-      text-align: center;
-      text-transform: uppercase;
-    }
+        section.details h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
 
-    .facilities ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px 25px;
-      list-style: none;
-      padding-left: 0;
-    }
+        section.details ul {
+            margin-left: 20px;
+            list-style-type: square;
+            color: #555;
+        }
 
-    .facilities ul li::before {
-      content: "\2714";
-      color: #388e3c;
-      font-weight: bold;
-      margin-right: 10px;
-    }
+        section.details li {
+            padding: 5px 0;
+        }
 
-    .facilities ul li {
-      color: #424242;
-      font-size: 0.95rem;
-    }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
 
-    footer {
-      background: #00251a;
-      color: #ccc;
-      text-align: center;
-      padding: 22px;
-      font-size: 0.9rem;
-      margin-top: 40px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-    }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
+            header p {
+                font-size: 0.95rem;
+            }
 
-      .details h2 {
-        font-size: 1.4rem;
-      }
+            .nav-button {
+                font-size: 18px;
+                padding: 8px;
+            }
 
-      .facilities ul {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+            section.details {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <h1>DELIGHT PARK</h1>
-  <p>Contact: 8209813084 | Email: lokeshyadav05299@gmail.com</p>
-</header>
+    <header>
+        <h1>Bhumija alankar - JDA Township</h1>
+        <p>Contact: <a href="tel:9468887005">9468887005</a> | Email: <a href="mailto:tatlasr@gmail.com">tatlasr@gmail.com</a></p>
+    </header>
 
 <div class="slideshow-container">
   <div class="slide"><a href="#"><img src="14.JPG" alt="Slide 1"></a></div>
@@ -187,46 +172,59 @@
   <h4>Price: ₹10,490 / Yard</h4>
   <h5>Plot Size: Starting from 111 Yards</h5>
 </div>
+   <h2>Facilities</h2>
+        <ul>
+            <li>Boom Barrier</li>
+            <li>Landscaped Park</li>
+            <li>Underground Water Pipeline</li>
+            <li>Outer Boundary</li>
+            <li>Borewell</li>
+            <li>Underground Electrification</li>
+            <li>Eco-Friendly Township</li>
+            <li>Underground Sewage Line</li>
+            <li>Guard House</li>
+            <li>Pathway & Plot Demarcation</li>
+        </ul>
+    </section>
 
-<div class="facilities">
-  <h6>Facilities</h6>
-  <ul>
-    <li>Boom Barrier</li>
-    <li>Landscaped Park</li>
-    <li>Underground Water Pipeline</li>
-    <li>Outer Boundary</li>
-    <li>Borewell</li>
-    <li>Underground Electrification</li>
-    <li>Eco-Friendly Township</li>
-    <li>Underground Sewage Line</li>
-    <li>Guard House</li>
-    <li>Pathway</li>
-    <li>Plot Demarcation</li>
-  </ul>
-</div>
+    <footer>
+        &copy; 2025 DELIGHT PARK. All rights reserved.
+    </footer>
 
-<footer>
-  &copy; 2025 Delight Park | Designed by Lokesh Yadav
-</footer>
+    <script>
+        let slideIndex = 1;
+        let timer;
 
-<script>
-  let slideIndex = 0;
-  showSlides();
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
 
-  function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000);
-  }
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
 
-  function moveSlide(n) {
-    slideIndex += n - 1;
-    showSlides();
-  }
-</script>
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function moveSlide(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex += n);
+            autoSlide();
+        }
+
+        function autoSlide() {
+            timer = setTimeout(() => {
+                slideIndex++;
+                showSlides(slideIndex);
+                autoSlide();
+            }, 3000);
+        }
+
+        showSlides(slideIndex);
+        autoSlide();
+    </script>
 
 </body>
 </html>
+
