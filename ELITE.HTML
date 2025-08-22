@@ -4,164 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ELITE WORLD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #1e88e5;
-      --secondary-color: #1565c0;
-      --text-dark: #212121;
-      --text-light: #ffffff;
-      --bg-light: #e3f2fd;
-      --bg-white: #ffffff;
-      --accent-color: #64b5f6;
-      --highlight: #ffd54f;
-    }
+   <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+            --bg-dark: #ecf0f1;
+            --hover-color: #1abc9c;
+        }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background: radial-gradient(circle at top left, #bbdefb, #e3f2fd);
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-dark);
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: #333;
+            line-height: 1.6;
+        }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-      color: var(--text-light);
-      position: relative;
-      border-bottom: 6px solid var(--highlight);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-light);
+            padding: 30px 10%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-    header h2 {
-      font-size: 1rem;
-      font-weight: 400;
-      opacity: 0.9;
-    }
+        header p {
+            font-size: 1.1rem;
+        }
 
-    .slideshow-container {
-      position: relative;
-      max-width: 1000px;
-      margin: 60px auto;
-      overflow: hidden;
-      border-radius: 28px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
-    }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
 
-    .slide {
-      display: none;
-      animation: fade 1.5s ease-in-out;
-    }
+        a:hover {
+            color: var(--hover-color);
+        }
 
-    @keyframes fade {
-      from {opacity: 0.5; transform: scale(1.02);}
-      to {opacity: 1; transform: scale(1);}
-    }
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 28px;
-    }
+        .slide {
+            display: none;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
 
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: var(--primary-color);
-      color: #fff;
-      font-size: 32px;
-      padding: 12px 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s, transform 0.3s;
-      z-index: 10;
-    }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
 
-    .prev:hover, .next:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-50%) scale(1.15);
-    }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
 
-    .prev { left: 24px; }
-    .next { right: 24px; }
+        .prev { left: 20px; }
+        .next { right: 20px; }
 
-    .info {
-      background: var(--bg-white);
-      border-radius: 24px;
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 70px 35px;
-      text-align: center;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-      line-height: 1.8;
-    }
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-    .info h3 {
-      font-size: 2.4rem;
-      color: var(--primary-color);
-      margin-bottom: 18px;
-    }
+        section.details {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-    .info h4, .info h5 {
-      font-size: 1.3rem;
-      color: #333;
-      margin-bottom: 12px;
-    }
+        section.details h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
 
-    .info h6 {
-      font-size: 1.05rem;
-      color: #555;
-      margin-top: 30px;
-      font-weight: 400;
-      padding: 0 10px;
-    }
+        section.details ul {
+            margin-left: 20px;
+            list-style-type: square;
+            color: #555;
+        }
 
-    footer {
-      text-align: center;
-      background: var(--secondary-color);
-      color: var(--text-light);
-      padding: 25px;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-    }
+        section.details li {
+            padding: 5px 0;
+        }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      .info h3 {
-        font-size: 1.6rem;
-      }
-      .info h4, .info h5 {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            .nav-button {
+                font-size: 18px;
+                padding: 8px;
+            }
+
+            section.details {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>ELITE WORLD</h1>
-    <h2>Contact: 7767933864 | Email: lokeshyadav05299@gmail.com</h2>
-  </header>
-
+    <header>
+        <h1> ELITE WORLD - JDA Township</h1>
+        <p>Contact: <a href="tel:7767933864">7767933864</a> | Email: <a href="mailto:lokeshyadav05299@gmail.com">lokeshyadav05299@gmail.com</a></p>
+    </header>
   <div class="slideshow-container">
     <div class="slide"><a href="#"><img src="90.jpg" alt="Slide 1"></a></div>
     <div class="slide"><a href="#"><img src="91.jpg" alt="Slide 2"></a></div>
@@ -173,40 +165,67 @@
     <div class="slide"><a href="#"><img src="97.jpg" alt="Slide 8"></a></div>
     <div class="slide"><a href="#"><img src="98.jpg" alt="Slide 9"></a></div>
     <div class="slide"><a href="#"><img src="99.jpg" alt="Slide 10"></a></div>
-    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-    <a class="next" onclick="moveSlide(1)">&#10095;</a>
-  </div>
+  <button class="nav-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="nav-button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
 
-  <div class="info">
-    <h3>Location: Near Mahindra SEZ</h3>
-    <h4>Price: Contact for Details</h4>
-    <h5>Plot Size: Starting from 111 Yards</h5>
-    <h6>Facilities Include: Boom Barrier, Landscaped Park, Underground Water Pipeline, Outer Boundary, Borewell, Underground Electrification, Eco-Friendly Township, Underground Sewage Line, Guard House, Pathway, and Plot Demarcation.</h6>
-  </div>
+    <section class="details">
+        <h2>Project Highlights</h2>
+        <p><strong>Location:</strong> Township at Mahindra SEZ</p>
+        <p><strong>Price:</strong> contact me / yard</p>
+        <p><strong>Plot Sizes:</strong> Starting from 111 yards</p>
 
-  <footer>
-    &copy; 2025 ELITE WORLD | Designed by Lokesh Yadav
-  </footer>
+        <h2>Facilities</h2>
+        <ul>
+            <li>Boom Barrier</li>
+            <li>Landscaped Park</li>
+            <li>Underground Water Pipeline</li>
+            <li>Outer Boundary</li>
+            <li>Borewell</li>
+            <li>Underground Electrification</li>
+            <li>Eco-Friendly Township</li>
+            <li>Underground Sewage Line</li>
+            <li>Guard House</li>
+            <li>Pathway & Plot Demarcation</li>
+        </ul>
+    </section>
 
-  <script>
-    let slideIndex = 0;
-    showSlides();
+    <footer>
+        &copy; 2025 Elite World. All rights reserved.
+    </footer>
 
-    function showSlides() {
-      let slides = document.getElementsByClassName("slide");
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 3000);
-    }
+    <script>
+        let slideIndex = 1;
+        let timer;
 
-    function moveSlide(n) {
-      slideIndex += n - 1;
-      showSlides();
-    }
-  </script>
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function moveSlide(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex += n);
+            autoSlide();
+        }
+
+        function autoSlide() {
+            timer = setTimeout(() => {
+                slideIndex++;
+                showSlides(slideIndex);
+                autoSlide();
+            }, 3000);
+        }
+
+        showSlides(slideIndex);
+        autoSlide();
+    </script>
 </body>
 </html>
